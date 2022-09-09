@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    font-size: 64px;
+}
+h3 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+a {
+    text-decoration: none;
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.weather-app-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+}
+.weather-app-body {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 15px;
+}
+.degree-value {
+    font-size: 18px;
+    position: relative;
+    bottom: 32px;
+    
+}
+.main-weather {
+    text-align: center;
+}
+.w-icon {
+    padding-top: 12px;
+    padding-right: 96px;
+    padding-left: 0;
+}
+.c-degrees {
+    padding-left: 96px;
+    padding-right: 0;
+}
+.addInfo {
+    text-align: center;
+}
