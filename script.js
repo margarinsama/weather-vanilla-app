@@ -37,6 +37,7 @@ function showWeather(response) {
   document.querySelector("#feel").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 function search(cityName) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=349a59a0a5ddf126a305e835cb2164e3`;
