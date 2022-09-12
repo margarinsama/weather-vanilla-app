@@ -27,6 +27,9 @@ button {
 .weather-app-wrapper {
     max-width: 600px;
     margin: 20px auto;
+    
+}
+#wrapper {
     background-image: url("img/backg.jpg");
     background-repeat: no-repeat;
     background-size: 600px;
