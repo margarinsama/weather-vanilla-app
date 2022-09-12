@@ -29,6 +29,9 @@ today.innerHTML = showDate();
 //
 //
 function showWeather(response) {
+  celciusTemp = Math.round(
+      response.data.main.temp
+    );
   document.querySelector(".city-name").innerHTML = response.data.name;
   document.querySelector("#degrees").innerHTML = Math.round(
     response.data.main.temp
@@ -42,6 +45,7 @@ function showWeather(response) {
   );
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+  
 }
 function search(cityName) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=349a59a0a5ddf126a305e835cb2164e3`;
@@ -67,4 +71,26 @@ function currentLocation(event) {
 let currentButton = document.querySelector(".current");
 currentButton.addEventListener("click", currentLocation);
 
+function changeToFahr(event) {
+  event.preventDefault();
+  let fTemp = Math.round((celciusTemp*1.8) + 32);
+  let tempValue = document.querySelector("#degrees");
+  tempValue.innerHTML = fTemp;
+}
+
+function changeToCel(event) {
+  event.preventDefault();
+  let cTemp = celciusTemp;
+  let tempValue = document.querySelector("#degrees");
+  tempValue.innerHTML = cTemp;
+
+}
+
+let celciusTemp = null;
+
+let fLink = document.querySelector("#f-link");
+fLink.addEventListener("click", changeToFahr);
+
+let cLink = document.querySelector("#c-link");
+cLink.addEventListener("click", changeToCel)
 search("Mariupol");
