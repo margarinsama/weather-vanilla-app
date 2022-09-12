@@ -13,7 +13,12 @@ h3 {
 }
 a {
     text-decoration: none;
-    color: #212529;
+    color: #781C68;
+    
+}
+a:hover{
+    color: #319DA0;
+    
 }
 img {
     display: block;
@@ -24,6 +29,7 @@ img {
 button {
     padding: 5px 12px;
 }
+
 .weather-app-wrapper {
     max-width: 600px;
     margin: 20px auto;
