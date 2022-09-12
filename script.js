@@ -14,7 +14,7 @@ function showDate() {
   if (currentHour < 10) {
     currentHour = `0${currentHour}`;
   }
-  if (currentHour > 20) {
+  if (currentHour > 19) {
     document.getElementById('wrapper').style.backgroundImage="url(img/evening.jpg)";
   }
   let currentMinutes = now.getMinutes();
