@@ -54,6 +54,8 @@ function search(cityName) {
 function submit(event) {
   event.preventDefault();
   let cityName = document.querySelector("#city-search").value;
+  fLink.classList.remove("active");
+  cLink.classList.add("active");
   search(cityName);
 }
 let searchForm = document.querySelector("#search-form");
