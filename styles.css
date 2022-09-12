@@ -96,3 +96,10 @@ button {
     color: #781C68;
     font-weight: 600;
 }
+.c-degrees .active {
+    color: #212529;
+    
+}
+.c-degrees .active:hover {
+    cursor: default;
+}

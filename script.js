@@ -73,6 +73,8 @@ currentButton.addEventListener("click", currentLocation);
 
 function changeToFahr(event) {
   event.preventDefault();
+  cLink.classList.remove("active");
+  fLink.classList.add("active");
   let fTemp = Math.round((celciusTemp*1.8) + 32);
   let tempValue = document.querySelector("#degrees");
   tempValue.innerHTML = fTemp;
@@ -80,6 +82,8 @@ function changeToFahr(event) {
 
 function changeToCel(event) {
   event.preventDefault();
+  fLink.classList.remove("active");
+  cLink.classList.add("active");
   let cTemp = celciusTemp;
   let tempValue = document.querySelector("#degrees");
   tempValue.innerHTML = cTemp;
