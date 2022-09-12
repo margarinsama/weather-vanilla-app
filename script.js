@@ -66,6 +66,8 @@ function userPosition(position) {
 }
 function currentLocation(event) {
   event.preventDefault();
+  fLink.classList.remove("active");
+  cLink.classList.add("active");
   navigator.geolocation.getCurrentPosition(userPosition);
 }
 let currentButton = document.querySelector(".current");
