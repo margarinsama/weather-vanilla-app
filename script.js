@@ -40,6 +40,7 @@ function showWeather(response) {
   document.querySelector("#feel").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 function search(cityName) {
