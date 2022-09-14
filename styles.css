@@ -31,14 +31,14 @@ button {
 }
 
 .weather-app-wrapper {
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
     
 }
 #wrapper {
     background-image: url("img/backg.jpg");
     background-repeat: no-repeat;
-    background-size: 600px;
+    background-size: 800px;
     border-radius: 10px;
 }
 .weather-app-body {
@@ -102,4 +102,11 @@ button {
 }
 .c-degrees .active:hover {
     cursor: default;
+}
+.w-cards {
+    text-align: center;
+}
+.card-icon {
+    padding-top: 0;
+    padding-bottom: 0;
 }
