@@ -28,6 +28,28 @@ let today = document.querySelector("#date-holder");
 today.innerHTML = showDate();
 //
 //
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row w-cards">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML + `
+    <div class="col-2">
+                    <div class="card" style="width: 100px;">
+                        <div class="card-body">
+                          <h5 class="card-title">${day}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted"><img src="http://openweathermap.org/img/wn/02n@2x.png" alt="" width="62px" class="card-icon"></h6>
+                          <p class="card-text"><span class="t-max">25</span>/<span class="t-min">23</span>°C</p>
+                        </div>
+                    </div> 
+                    
+    </div>
+    `;
+  });
+  forecastHTML = forecastHTML + `</div>`
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   celciusTemp = Math.round(
       response.data.main.temp
@@ -45,7 +67,7 @@ function showWeather(response) {
   );
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
-  
+  showForecast();
 }
 function search(cityName) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=349a59a0a5ddf126a305e835cb2164e3`;
