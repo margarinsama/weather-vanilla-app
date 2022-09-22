@@ -28,24 +28,32 @@ let today = document.querySelector("#date-holder");
 today.innerHTML = showDate();
 //
 //
+function formatForecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 function showForecast(response) {
-  console.log(response.data)
+  
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row w-cards">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
+  let forecastDays = response.data.daily;
+  forecastDays.forEach(function (day, index) {
+    if (index < 6) {
     forecastHTML = forecastHTML + `
     <div class="col-2">
                     <div class="card" style="width: 100px;">
                         <div class="card-body">
-                          <h5 class="card-title">${day}</h5>
-                          <h6 class="card-subtitle mb-2 text-muted"><img src="http://openweathermap.org/img/wn/02n@2x.png" alt="" width="62px" class="card-icon"></h6>
-                          <p class="card-text"><span class="t-max">25</span>/<span class="t-min">23</span>°C</p>
+                          <h5 class="card-title">${formatForecast(day.dt)}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted"><img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" width="62px" class="card-icon"></h6>
+                          <p class="card-text"><span class="t-max">${Math.round(day.temp.max)}</span>/<span class="t-min">${Math.round(day.temp.min)}</span>°C</p>
                         </div>
                     </div> 
                     
     </div>
     `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`
   forecastElement.innerHTML = forecastHTML;
